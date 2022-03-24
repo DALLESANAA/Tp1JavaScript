@@ -1,0 +1,22 @@
+{
+  "name": "tpjavascript",
+  "version": "1.0.0",
+  "description": "git universities from api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DALLESANAA/Tp1JavaScript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DALLESANAA/Tp1JavaScript/issues"
+  },
+  "homepage": "https://github.com/DALLESANAA/Tp1JavaScript#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
