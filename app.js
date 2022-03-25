@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 const port = 5000;
+app.set("view engine", "ejs");
 
 const universityRoute = require('./routes/universityRoute');
 app.use('/',universityRoute);
