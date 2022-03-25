@@ -1,24 +1,25 @@
 var express = require("express");
-const axios = require("axios");
-const cors = require("cors");
-const port = 5000;
-const UNIVERSITIES_API = 'http://universities.hipolabs.com/search?country=morocco';
 const app = express();
+const axios = require("axios");
+const port = 5000;
+const universityService= require('./services/universityService')    
 
+const UNIVERSITIES_API_LINK = 'http://universities.hipolabs.com/search?country=morocco';
 app.set("view engine", "ejs");
 
-app.get('/universities', async (req, res) => { 
+app.get('/universities', async (req, res) => {
     try {
-        const { data } =  await axios.get(UNIVERSITIES_API);
+        const { data } =  await universityService.getAllUniversities(UNIVERSITIES_API_LINK);
         res.render("index", {
             universities: data,
             });
         } catch(ex) {
             res.status(500).send(ex.data);
         }  
-      });
+      }
+);
 
-app.listen(port, () => { 
-    console.log(`Listening on port ${port}`); 
+
+app.listen(port, () => {
+    console.log(`Now listening on port ${port}`);
 });
-    
