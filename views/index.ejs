@@ -1,0 +1,22 @@
+<html>
+<body>
+    <div>
+      <h3 style="text-align: center;">Les écoles marocaines</h3>  
+      <table style="margin-left: 30%; border: 1px solid black;">
+        <tr>
+          <th>Nom</th>
+          <th>Pays</th>
+        </tr>
+        <% universities.forEach(function(university) { %>
+        <tr>
+          <td> <%= university.name %></td>
+          <td><%= university.country %></td>
+        </tr>
+        <% }); %>
+      </table>
+
+   </div>
+
+</body>
+
+</html>

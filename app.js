@@ -1,20 +1,10 @@
-var express = require("express");
-const axios = require("axios");
-const cors = require("cors");
-const port = 5000;
-const LINK_UNIVERSITIES = 'http://universities.hipolabs.com/search?country=morocco';
+const express = require('express'); 
 const app = express();
-app.use(cors({origin : "*"}))
+const myRoute = require('./routes/route'); 
+app.set("view engine", "ejs");
 
-app.get('/', async (req, res) => { 
-    try {
-        const { data } =  await axios.get(LINK_UNIVERSITIES);
-        res.json(data);
-        } catch(ex) {
-            res.status(500).send(ex.data);
-        }  
-      });
-
-app.listen(port, () => { 
-    console.log(`Now listening on port ${port}`); 
+app.listen(8888, () => { 
+    console.log(`Now listening on port 8888`); 
 });
+
+app.use('/', myRoute); 
