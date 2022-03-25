@@ -1,12 +1,8 @@
 const express = require('express')
-const universityController= require('../controllers/universityController');   
 const getAllUniversities =require('../controllers/universityController')
+const app = express.Router()
 
-let app = express.Router()
-
-
-app.get('/un',getAllUniversities);
-
+app.get('/universities',getAllUniversities);
 
 module.exports = app
 
