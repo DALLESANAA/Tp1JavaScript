@@ -1,9 +1,20 @@
-var express = require("express");
-const app = express();
+var express = require('express');
+var app = express();
 const axios = require("axios");
 const port = 5000;
-const universityService= require('./services/universityService')    
 
+const universityRoute = require('./routes/universityRoute');
+
+app.use('/',universityRoute);
+
+
+
+app.listen(port, () => {
+    console.log(`Now listening on port ${port}`);
+});
+
+
+/*
 const UNIVERSITIES_API_LINK = 'http://universities.hipolabs.com/search?country=morocco';
 app.set("view engine", "ejs");
 
@@ -17,9 +28,4 @@ app.get('/universities', async (req, res) => {
             res.status(500).send(ex.data);
         }  
       }
-);
-
-
-app.listen(port, () => {
-    console.log(`Now listening on port ${port}`);
-});
+);*/

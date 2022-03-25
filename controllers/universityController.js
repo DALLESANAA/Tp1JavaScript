@@ -1,19 +1,14 @@
-var express = require("express");
-const app = express();
-const axios = require("axios");
-const port = 5000;
-const universityService= require('./services/universityService')    
-
-const UNIVERSITIES_API_LINK = 'http://universities.hipolabs.com/search?country=morocco';
-app.set("view engine", "ejs");
-
-exports.getAllUniversities(link) = async (req, res) => {
+const universityService= require('../services/universityService')   
+const getAllUniversities = async (req, res) => {
     try {
-        const { data } =  await universityService.getAllUniversities(link);
-        res.render("index", {
+        const { data } =  await universityService.getAllUniversitiesSer();
+        res.json(data);
+        /*res.render("index", {
             universities: data,
-            });
+        });*/
         } catch(ex) {
+            console.log("****error on controller*******")
             res.status(500).send(ex.data);
         }  
 }
+module.exports=getAllUniversities;

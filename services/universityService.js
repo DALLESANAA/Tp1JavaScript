@@ -1,10 +1,11 @@
 const axios = require('axios')
 
-exports.getAllUniversities = async function (link) {
+exports.getAllUniversitiesSer = async function (){
     try {
-        var uns = await axios.get(link)
-        return uns;
+        const universities = await axios.get('http://universities.hipolabs.com/search?country=morocco')
+        return universities;
     } catch (e) {
+        console.log("****error on service****")
         throw Error('Error while Getting universities')
     }
 }
