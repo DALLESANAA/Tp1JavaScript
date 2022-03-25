@@ -1,10 +1,31 @@
-const express = require('express'); 
-const app = express();
-const myRoute = require('./routes/route'); 
-app.set("view engine", "ejs");
+var express = require('express');
+var app = express();
+const axios = require("axios");
+const port = 5000;
 
-app.listen(8888, () => { 
-    console.log(`Now listening on port 8888`); 
+const universityRoute = require('./routes/universityRoute');
+
+app.use('/',universityRoute);
+
+
+
+app.listen(port, () => {
+    console.log(`Now listening on port ${port}`);
 });
 
-app.use('/', myRoute); 
+
+/*
+const UNIVERSITIES_API_LINK = 'http://universities.hipolabs.com/search?country=morocco';
+app.set("view engine", "ejs");
+
+app.get('/universities', async (req, res) => {
+    try {
+        const { data } =  await universityService.getAllUniversities(UNIVERSITIES_API_LINK);
+        res.render("index", {
+            universities: data,
+            });
+        } catch(ex) {
+            res.status(500).send(ex.data);
+        }  
+      }
+);*/

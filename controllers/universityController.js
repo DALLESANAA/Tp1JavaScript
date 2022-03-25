@@ -1,14 +1,14 @@
-//GET '/universities'
-const myService = require('../services/universityService')   ; 
-
-const getUniversities = async  (req, res) =>{
+const universityService= require('../services/universityService')   
+const getAllUniversities = async (req, res) => {
     try {
-        const {universities} = await myService.getAllUniversities();
-        res.status(200).json(universities);
-    } catch (e) {
-         //res.status(400).json(universities);
-         res.json("error");
-    }
+        const { data } =  await universityService.getAllUniversitiesSer();
+        res.json(data);
+        /*res.render("index", {
+            universities: data,
+        });*/
+        } catch(ex) {
+            console.log("****error on controller*******")
+            res.status(500).send(ex.data);
+        }  
 }
-module.exports = getUniversities;
-
+module.exports=getAllUniversities;
